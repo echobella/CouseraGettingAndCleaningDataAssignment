@@ -6,4 +6,4 @@ packages "dplyr" and "data.table" are installed and used
 
 "run_analysis.R" contains the codes that are performed for the analysis
 
-the result document is "TidyData.TXT"
+the result document is "TidyData.txt"
