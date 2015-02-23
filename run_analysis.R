@@ -76,10 +76,19 @@ names(data) <- gsub("Gyro", "Gyroscope", names(data))
 names(data) <- gsub("Mag", "Magnitude", names(data))
 names(data) <- gsub("BodyBody", "Body", names(data))
 
+names(data) <- gsub("^t", "time", names(data))
+names(data) <- gsub("^f", "frequency", names(data))
+names(data) <- gsub("Acc", "Accelerometer", names(data))
+names(data) <- gsub("Gyro", "Gyroscope", names(data))
+names(data) <- gsub("Mag", "Magnitude", names(data))
+names(data) <- gsub("BodyBody", "Body", names(data))
+names(data)
 
+TidyData <- aggregate(. ~subject + activity, data, mean)
+head(TidyData)
+TidyData <- TidyData[order(TidyData$subject, TidyData$activity),]
+head(TidyData)
+str(TidyData)
 
-
-
-
-
-
+write.table(TidyData, file = "TidyData.txt", row.name = FALSE)
+head(TidyData)
